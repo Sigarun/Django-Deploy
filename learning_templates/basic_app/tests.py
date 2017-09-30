@@ -1,5 +1,8 @@
 from django.test import TestCase
-from . import models
+from django.urls import reverse
 
-class MyQuestionModel(TestCase):
-    pass
+class TemplateTest(TestCase):
+
+    def test_is_index_accessible(self):
+        response = self.client.get(reverse("index"))
+        self.assertEqual(response.status_code, 200)
